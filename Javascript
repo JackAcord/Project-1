@@ -1,4 +1,4 @@
-/* The following code in this javascript is a combination of a post on StackOverflow about how to get a score into a quiz type program, one of the responses ammending the code, and my own guess work, all of it naturally spelled out in these comments.*/
+/* The following code in this javascript is a combination of a post on StackOverflow about how to get a score into a quiz type program, some of the responses ammending the code, and my own guess work, most of it naturally spelled out in these comments.*/
 
 // This is showing what the answers to the questions are.
 //The brackets are showing that a new array is being created.
@@ -6,20 +6,22 @@ var answers = ["c","c","b","a","b","b","d","c","c","b"];
 	tot = answers.length;
 
 //The code here is obtaining the checked values of each question
-function getCheckedValue( radioName ){
-	var radios = document.getElementsByName( radioName );//This gets the radio group by their names
+function getCheckedValue(radioName){
+	var radios = document.getElementsByName(radioName);//This gets the radio group by their names
 	for(var y=0; y<radios.length; y++)
-		if(radios[y].checked) return radios[y].value;//This confirms the radio button's value
+		if(radios[y].checked) {
+		return radios[y].value
+		}//This confirms the radio button's value
 }
 
 //The following code is to determine what score the player has gotten.
 function getScore(){
 	var score = 0; //This is what the player starts with.
-	for (var i=0; i<tot; i++)
-		if(getCheckedValue("question"+i)===answers[i]){
-		score += 1;
+	for (var y=0; y<tot; y++)
+		if(getCheckedValue("question"+y) === answers[y]){
+		score =+ 1;
 		} else {
-			score += 0;
+			score =+ 0;
 		} //This is actually detemining if the answer is right and how it is scored
 	return score;
 }
@@ -27,4 +29,3 @@ function getScore(){
 //This is going to display the score
 function returnScore(){
 	alert("You have gotten "+ getScore() + " out of " + tot + " correct.");
-}
