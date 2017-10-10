@@ -2,7 +2,7 @@
 
 // This is showing what the answers to the questions are.
 //The brackets are showing that a new array is being created.
-var answers = ["c","c","b","a","b","b","d","c","c","b"];
+var answers = ["c","c","b","a","b","c","d","d","a","b"];
 	tot = answers.length;
 
 //The code here is obtaining the checked values of each question
@@ -16,16 +16,17 @@ function getCheckedValue(radioName){
 
 //The following code is to determine what score the player has gotten.
 function getScore(){
-	var score = 0; //This is what the player starts with.
-	for (var y=0; y<tot; y++)
-		if(getCheckedValue("question"+y) === answers[y]){
-		score =+ 1;
+	var score = 0;
+	for (var i=0; i<tot; i++)
+		if(getCheckedValue("question"+i) === answers[i]){
+		score += 1;
 		} else {
-			score =+ 0;
+			score += 0;
 		} //This is actually detemining if the answer is right and how it is scored
 	return score;
 }
 
 //This is going to display the score
 function returnScore(){
-	alert("You have gotten "+ getScore() + " out of " + tot + " correct.");
+	alert("You have gotten "+ getScore() + " out of " + tot + " correct. Nice Job.");
+}
